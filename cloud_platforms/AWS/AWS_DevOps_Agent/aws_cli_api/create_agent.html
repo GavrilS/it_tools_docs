@@ -18,9 +18,9 @@ need to set up the relevant permissions for the agent space and the operator app
         <code>
             <strong>bash</strong><br>
             aws devops-agent create-agent-space \
-            --name <value> \
-            --description <value> \
-            --region <value>
+            --name &lt;value&gt; \
+            --description &lt;value&gt; \
+            --region &lt;value&gt;
         </code>
     </pre>
 </div>
@@ -35,13 +35,13 @@ need to set up the relevant permissions for the agent space and the operator app
         <code>
             <strong>bash</strong><br>
             aws devops-agent associate-service \
-            --agent-space-id <value> \
+            --agent-space-id &lt;value&gt; \
             --service-id aws \
-            --region <value> \
+            --region &lt;value&gt; \
             --configuration '{
                 "aws": {
-                    "assumableRoleArn": <value>,
-                    "accountId": <value>,
+                    "assumableRoleArn": &lt;value&gt;,
+                    "accountId": &lt;value&gt;,
                     "accountType": "monitor"
                 }
             }'
@@ -57,9 +57,9 @@ need to set up the relevant permissions for the agent space and the operator app
         <code>
             <strong>bash</strong>
             aws devops-agent enable-operator-app \
-            --agent-space-id <value>
-            --auth-flow <value>
-            --operator-app-role-arn <value>
+            --agent-space-id &lt;value&gt;
+            --auth-flow &lt;value&gt;
+            --operator-app-role-arn &lt;value&gt;
         </code>
     </pre>
 </div>
@@ -82,10 +82,10 @@ Arguments:<br>&nbsp;&nbsp;&nbsp;&nbsp;
         <code>
             <strong>bash</strong>
             aws devops-agent associate-service \
-            --agent-space-id <value> \
-            --service-id <value> \
-            --configuration <value> \
-            --region <value>
+            --agent-space-id &lt;value&gt; \
+            --service-id &lt;value&gt; \
+            --configuration &lt;value&gt; \
+            --region &lt;value&gt;
         </code>
     </pre>
 </div>

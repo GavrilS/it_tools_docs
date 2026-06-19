@@ -6,3 +6,117 @@
 
 <h3>Commands to remove the agent</h3>
 
+<p>
+    To remove the agent we will follow the following steps:
+    <ol type="1">
+        <li>List all associations to the AgentSpace;</li>
+        <li>Disassociate all associated services;</li>
+        <li>Disable the OperatorApp;</li>
+        <li>Delete the AgentSpace.</li>
+    </ol>
+</p>
+
+<h5>Step 1: list all associated services for the AgentSpace</h5>
+
+<p>Command:</p>
+<div>
+    <pre>
+        <code>
+            <strong>bash</strong>
+            aws devops-agent list-associations \
+            --agent-space-id &lt;value&gt;
+        </code>
+    </pre>
+</div>
+
+<p>
+    Arguments:
+    <ul>
+        <li>agent-space-id - the id of the agent space.</li>
+    </ul>
+    <a 
+    href="https://docs.aws.amazon.com/cli/latest/reference/devops-agent/list-associations.html" 
+    target="_blank">
+        AWS Docs
+    </a>
+</p>
+
+<h5>Step 2: remove associated services</h5>
+
+<p>
+    Run the bellow command for each associated service returned by the command in step 1.
+    Command:
+</p>
+<div>
+    <pre>
+        <code>
+            <strong>bash</strong>
+            aws devops-agent disassociate-service \
+            --agent-space-id &lt;value&gt; \
+            --association-id &lt;value&gt;
+        </code>
+    </pre>
+</div>
+
+<p>
+    Arguments:
+    <ul>
+        <li>agent-space-id - the id of the agent space;</li>
+        <li>association-id - the id of the associated service.</li>
+    </ul>
+    <a 
+    href="https://docs.aws.amazon.com/cli/latest/reference/devops-agent/disassociate-service.html"
+    target="_blank">
+        AWS Docs
+    </a>
+</p>
+
+<h5>Step 3: disable the OperatorApp</h5>
+
+<p>Command:</p>
+<div>
+    <pre>
+        <code>
+            <strong>bash</strong>
+            aws devops-agent disable-operator-app \
+            --agent-space-id &lt;value&gt;
+        </code>
+    </pre>
+</div>
+
+<p>
+    Arguments:
+    <ul>
+        <li>agent-space-id - the id of the agent space.</li>
+    </ul>
+    <a 
+    href="https://docs.aws.amazon.com/cli/latest/reference/devops-agent/disable-operator-app.html"
+    target="_blank">
+        AWS Docs
+    </a>
+</p>
+
+<h5>Step 4: delete the AgentSpace</h5>
+
+<p>Command:</p>
+<div>
+    <pre>
+        <code>
+            <strong>bash</strong>
+            aws devops-agent delete-agent-space \
+            --agent-space-id &lt;value&gt;
+        </code>
+    </pre>
+</div>
+
+<p>
+    Arguments:
+    <ul>
+        <li>agent-space-id - the id of the agent space.</li>
+    </ul>
+    <a 
+    href="https://docs.aws.amazon.com/cli/latest/reference/devops-agent/delete-agent-space.html"
+    target="_blank">
+        AWS Docs
+    </a>
+</p>
