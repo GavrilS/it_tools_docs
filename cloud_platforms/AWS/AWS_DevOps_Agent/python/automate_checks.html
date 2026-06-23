@@ -1,0 +1,49 @@
+<h1>Automatically create an investigation on specific conditions with Python</h1>
+
+<p>
+    You can use the DevOps Agent to perform investigations on any issue in your infrastructure
+    that you notice. In this case we will use CW Alarms as a base. We want to create an 
+    investigation when a CW Alarm becomes active. To do this, we will be using Python and 
+    the boto3 library to tell the Agent to start an investigation. Additionally, we will also
+    retrieve the investigation ID so we can more easily find our investigation after that.
+</p>
+
+<h5>Create the client for the Agent</h5>
+
+<div>
+    <pre>
+        <code>
+            <strong>python</strong>
+            import boto3
+
+            client = boto3.client("devops-agent", region="region")
+        </code>
+    </pre>
+</div>
+
+<h5>Create the investigation task</h5>
+
+<div>
+    <pre>
+        <code>
+            response = client.create_backlog_task(
+                agentSpaceId="string",
+                taskType="INVESTIGATION",
+                title="string",
+                description="string",
+                priority="CRITICAL|HIGH|MEDIUM|LOW|MINIMAL"
+            )
+        </code>
+    </pre>
+</div>
+
+<h5>Handle the request's response</h5>
+
+<div>
+    <pre>
+        <code>
+            <strong>python</strong>
+            return response["task"]["taskId"]
+        </code>
+    </pre>
+</div>
